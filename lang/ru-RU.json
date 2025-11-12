@@ -2,10 +2,10 @@
   "$schema": "../../effect.lang.schema.json",
 
   "languageTag": "ru-RU",
-  "fileDescription": "Strings for the 'Rim Inline' effect.",
+  "fileDescription": "Strings for the 'Angular Rim Light' effect.",
   "text": {
     "effects": {
-      "disketaa_rim_inline": {
+      "disketaa_angular-rim-light": {
         "name": "Контурное свечение",
         "description": "Создать контурное свечение, осветив края изображения в пределах конуса.",
         "parameters": {

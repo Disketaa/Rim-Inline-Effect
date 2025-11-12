@@ -3,8 +3,8 @@
 
   "is-c3-addon": true,
   "type": "effect",
-  "name": "Rim_Inline",
-  "id": "Disketaa_Rim_Inline",
+  "name": "Angular Rim Light",
+  "id": "Disketaa_Angular-Rim-Light",
 
   "supported-renderers": ["webgl", "webgpu"],
 
@@ -42,7 +42,7 @@
     {
       "id": "opacity",
       "type": "percent",
-      "initial-value": 1.0,
+      "initial-value": 0.5,
       "uniform": "opacity"
     },
     {
@@ -54,7 +54,7 @@
     {
       "id": "threshold",
       "type": "percent",
-      "initial-value": 0.5,
+      "initial-value": 0.0,
       "uniform": "threshold"
     },
     {
@@ -72,13 +72,13 @@
     {
       "id": "amount",
       "type": "float",
-      "initial-value": 100.0,
+      "initial-value": 50.0,
       "uniform": "amount"
     },
     {
       "id": "sharpness",
       "type": "percent",
-      "initial-value": 25.0,
+      "initial-value": 0.25,
       "uniform": "sharpness"
     }
   ]
