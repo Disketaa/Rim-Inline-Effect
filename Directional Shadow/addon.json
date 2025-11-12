@@ -1,0 +1,96 @@
+﻿{
+  "$schema": "../effect.addon.schema.json",
+
+  "is-c3-addon": true,
+  "type": "effect",
+  "name": "Directional Shadow",
+  "id": "Disketaa_Directional_Shadow",
+
+  "supported-renderers": ["webgl", "webgpu"],
+
+  "version": "0.1",
+  "author": "Disketaa",
+  "website": "https://github.com/Disketaa/Dropshadow-Effect",
+  "documentation": "https://www.construct.net/en/make-games/addons/1516/shadow/documentation",
+  "description": "Projects a directional shadow with adjustable angle, scale, and offset to simulate realistic lighting from any direction.",
+  "file-list": [
+    "lang/en-US.json",
+    "lang/ru-RU.json",
+    "addon.json",
+    "effect.fx",
+    "effect.wgsl"
+  ],
+
+  "category": "other",
+  "blends-background": false,
+  "cross-sampling": false,
+  "preserves-opaqueness": false,
+  "animated": false,
+  "extend-box": {
+    "horizontal": 32,
+    "vertical": 32
+  },
+
+  "parameters": [
+    {
+      "id": "shadow_color",
+      "type": "color",
+      "initial-value": [0.0, 0.0, 0.0],
+      "uniform": "shadow_color"
+    },
+    {
+      "id": "shadow_opacity",
+      "type": "percent",
+      "initial-value": 0.5,
+      "uniform": "shadow_opacity"
+    },
+    {
+      "id": "angle",
+      "type": "float",
+      "initial-value": 330.0,
+      "uniform": "angle"
+    },
+    {
+      "id": "sharpness",
+      "type": "percent",
+      "initial-value": 0.0,
+      "uniform": "sharpness"
+    },
+    {
+      "id": "horizontal_center",
+      "type": "percent",
+      "initial-value": 0.5,
+      "uniform": "horizontal_center"
+    },
+    {
+      "id": "vertical_center",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "vertical_center"
+    },
+    {
+      "id": "horizontal_scale",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "horizontal_scale"
+    },
+    {
+      "id": "vertical_scale",
+      "type": "percent",
+      "initial-value": 0.5,
+      "uniform": "vertical_scale"
+    },
+    {
+      "id": "horizontal_offset",
+      "type": "float",
+      "initial-value": 0.0,
+      "uniform": "horizontal_offset"
+    },
+    {
+      "id": "vertical_offset",
+      "type": "float",
+      "initial-value": 0.0,
+      "uniform": "vertical_offset"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+﻿{
+  "$schema": "../effect.addon.schema.json",
+
+  "is-c3-addon": true,
+  "type": "effect",
+  "name": "Bloom",
+  "id": "Disketaa_Bloom",
+
+  "supported-renderers": ["webgl", "webgpu"],
+
+  "version": "0.4",
+  "author": "Disketaa",
+  "website": "https://github.com/Disketaa/Bloom-Effect/tree/main",
+  "documentation": "https://www.construct.net/en/make-games/addons/1514/bloom/documentation",
+  "description": "A post-process glow that mimics intense brightness and light scattering.",
+  "file-list": [
+    "lang/en-US.json",
+    "lang/ru-RU.json",
+    "addon.json",
+    "effect.fx",
+    "effect.wgsl"
+  ],
+
+  "category": "color",
+  "blends-background": false,
+  "cross-sampling": false,
+  "preserves-opaqueness": true,
+  "animated": true,
+  "extend-box": {
+    "horizontal": 32,
+    "vertical": 32
+  },
+
+  "parameters": [
+    {
+      "id": "intensity",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "intensity",
+      "interpolatable": true
+    },
+    {
+      "id": "brightness",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "brightness",
+      "interpolatable": true
+    },
+    {
+      "id": "falloff",
+      "type": "percent",
+      "initial-value": 0.1,
+      "uniform": "falloff",
+      "interpolatable": true
+    },
+    {
+      "id": "threshold",
+      "type": "percent",
+      "initial-value": 0.0,
+      "uniform": "threshold",
+      "interpolatable": true
+    },
+    {
+      "id": "samples",
+      "type": "float",
+      "initial-value": 24,
+      "uniform": "samples",
+      "interpolatable": false
+    }
+  ]
+}

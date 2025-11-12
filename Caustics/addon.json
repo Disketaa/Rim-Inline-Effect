@@ -1,0 +1,96 @@
+﻿{
+  "$schema": "../effect.addon.schema.json",
+
+  "is-c3-addon": true,
+  "type": "effect",
+  "name": "Caustics",
+  "id": "Disketaa_Caustics",
+
+  "supported-renderers": ["webgl", "webgpu"],
+
+  "version": "0.2",
+  "author": "Disketaa",
+  "website": "https://github.com/Disketaa/Caustics-Effect",
+  "documentation": "https://www.construct.net/en/make-games/addons/1515/caustics/documentation",
+  "description": "Dynamic water caustic light patterns.",
+  "file-list": [
+    "lang/en-US.json",
+    "lang/ru-RU.json",
+    "addon.json",
+    "effect.fx",
+    "effect.wgsl"
+  ],
+
+  "category": "distortion",
+  "blends-background": true,
+  "cross-sampling": false,
+  "preserves-opaqueness": false,
+  "animated": true,
+  "extend-box": {
+    "horizontal": 0,
+    "vertical": 0
+  },
+
+  "parameters": [
+    {
+      "id": "color",
+      "type": "color",
+      "initial-value": [1.0, 1.0, 1.0],
+      "uniform": "caustic_color"
+    },
+    {
+      "id": "speed",
+      "type": "percent",
+      "initial-value": 0.5,
+      "uniform": "speed"
+    },
+    {
+      "id": "horizontal_scale",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "horizontal_scale"
+    },
+    {
+      "id": "vertical_scale",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "vertical_scale"
+    },
+    {
+      "id": "threshold",
+      "type": "percent",
+      "initial-value": 0.75,
+      "uniform": "threshold"
+    },
+    {
+      "id": "sharpness",
+      "type": "percent",
+      "initial-value": 0.0,
+      "uniform": "sharpness"
+    },
+    {
+      "id": "pixel_size",
+      "type": "float",
+      "initial-value": 0.0,
+      "uniform": "pixel_size"
+    },
+    {
+      "id": "glow_intensity",
+      "type": "percent",
+      "initial-value": 0.5,
+      "uniform": "glow_intensity"
+    },
+    {
+      "id": "glow_threshold",
+      "type": "percent",
+      "initial-value": 0.5,
+      "uniform": "glow_threshold"
+    },
+    {
+      "id": "opacity_variation",
+      "type": "percent",
+      "initial-value": 0.0,
+      "uniform": "opacity_variation"
+    }
+  ]
+}

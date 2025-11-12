@@ -1,0 +1,52 @@
+﻿{
+  "$schema": "../../effect.lang.schema.json",
+
+  "languageTag": "en-US",
+  "fileDescription": "Strings for the 'Radial Shadow' effect.",
+  "text": {
+    "effects": {
+      "disketaa_radial_shadow": {
+        "name": "Radial shadow",
+        "description": "Create a radial shadow underneath the image.",
+        "parameters": {
+          "shadow_color": {
+            "name": "Color",
+            "desc": "The color of the shadow."
+          },
+          "shadow_opacity": {
+            "name": "Opacity",
+            "desc": "Opacity of the shadow."
+          },
+          "sharpness": {
+            "name": "Sharpness",
+            "desc": "Controls the hardness of the shadow."
+          },
+          "horizontal_center": {
+            "name": "Horizontal Center",
+            "desc": "Horizontal pivot point for the scaling."
+          },
+          "vertical_center": {
+            "name": "Vertical Center",
+            "desc": "Vertical pivot point for the scaling."
+          },
+          "horizontal_scale": {
+            "name": "Horizontal Scale",
+            "desc": "Horizontal scale of the shadow."
+          },
+          "vertical_scale": {
+            "name": "Vertical Scale",
+            "desc": "Vertical scale of the shadow."
+          },
+          "horizontal_offset": {
+            "name": "Horizontal Offset",
+            "desc": "Horizontal offset of the shadow relative to the original image."
+          },
+          "vertical_offset": {
+            "name": "Vertical Offset",
+            "desc": "Vertical offset of the shadow relative to the original image."
+          }
+        }
+      }
+    }
+  }
+}

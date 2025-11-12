@@ -1,0 +1,56 @@
+﻿{
+  "$schema": "../../effect.lang.schema.json",
+
+  "languageTag": "ru-RU",
+  "fileDescription": "Strings for the 'Radial Shadow' effect.",
+  "text": {
+    "effects": {
+      "disketaa_radial_shadow": {
+        "name": "Радиальная тень",
+        "description": "Создать круглую тень под изображением.",
+        "parameters": {
+          "shadow_color": {
+            "name": "Цвет",
+            "desc": "Цвет тени."
+          },
+          "shadow_opacity": {
+            "name": "Прозрачность",
+            "desc": "Прозрачность тени."
+          },
+          "sharpness": {
+            "name": "Резкость",
+            "desc": "Управляет жесткостью тени."
+          },
+          "horizontal_center": {
+            "name": "Горизонтальный центр",
+            "desc": "Горизонтальная точка опоры для масштабирования."
+          },
+          "vertical_center": {
+            "name": "Вертикальный центр",
+            "desc": "Вертикальная точка опоры для масштабирования."
+          },
+          "horizontal_scale": {
+            "name": "Горизонтальный масштаб",
+            "desc": "Горизонтальный масштаб тени."
+          },
+          "vertical_scale": {
+            "name": "Вертикальный масштаб",
+            "desc": "Вертикальный масштаб тени."
+          },
+          "horizontal_offset": {
+            "name": "Горизонтальное смещение",
+            "desc": "Горизонтальное смещение тени относительно оригинального изображения."
+          },
+          "vertical_offset": {
+            "name": "Вертикальное смещение",
+            "desc": "Вертикальное смещение тени относительно оригинального изображения."
+          },
+          "sharpness": {
+            "name": "Sharpness",
+            "desc": "Controls the hardness of the rim inline effect."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "../../effect.lang.schema.json",
+
+  "languageTag": "en-US",
+  "fileDescription": "Strings for the 'Bloom' effect.",
+  "text": {
+    "effects": {
+      "disketaa_bloom": {
+        "name": "Bloom",
+        "description": "A post-process glow that mimics intense brightness and light scattering.",
+        "parameters": {
+          "intensity": {
+            "name": "Intensity",
+            "desc": "Controls the spread and radius of the bloom effect."
+          },
+          "brightness": {
+            "name": "Brightness",
+            "desc": "Controls the intensity and strength of the bloom glow."
+          },
+          "falloff": {
+            "name": "Falloff",
+            "desc": "Controls how smoothly the bloom transitions from threshold to full brightness."
+          },
+          "threshold": {
+            "name": "Threshold",
+            "desc": "Sets the minimum brightness level for pixels to generate bloom."
+          },
+          "samples": {
+            "name": "Samples",
+            "desc": "Number of samples used for blur calculation."
+          }
+        }
+      }
+    }
+  }
+}
