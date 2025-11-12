@@ -25,60 +25,43 @@ struct ShaderParams {
 @fragment
 fn main(input : FragmentInput) -> FragmentOutput {
     let uv = input.fragUV;
-
-    if (shaderParams.opacity == 0.0 || shaderParams.amount == 0.0 || shaderParams.threshold > 1.0) {
-        let front = textureSample(textureFront, samplerFront, uv);
-        var output : FragmentOutput;
-        output.color = front;
-        return output;
-    }
-
     let front = textureSample(textureFront, samplerFront, uv);
+    var output : FragmentOutput;
 
-    if (front.a == 0.0) {
-        var output : FragmentOutput;
+    if (shaderParams.opacity == 0.0 || shaderParams.amount == 0.0 || front.a == 0.0) {
         output.color = front;
         return output;
     }
 
     let brightness = dot(front.rgb, vec3<f32>(0.299, 0.587, 0.114));
-    let threshold_factor = 1.0 - smoothstep(shaderParams.threshold, shaderParams.threshold + 0.1, brightness);
-
-    if (threshold_factor <= 0.0) {
-        var output : FragmentOutput;
+    if (brightness <= shaderParams.threshold) {
         output.color = front;
         return output;
     }
 
+    let angle_rad = radians(shaderParams.angle);
+    let cone_rad = radians(shaderParams.cone);
+    let clamped_sharpness = min(shaderParams.sharpness, 1.0);
+
     let object_center = (c3Params.srcOriginStart + c3Params.srcOriginEnd) * 0.5;
     let to_pixel = uv - object_center;
+    let light_dir = vec2<f32>(cos(angle_rad), sin(angle_rad));
+    let pixel_dir = normalize(to_pixel);
+    let cos_angle = dot(light_dir, pixel_dir);
+    let cone_cos = cos(cone_rad);
 
-    let light_direction = vec2<f32>(cos(radians(shaderParams.angle)), sin(radians(shaderParams.angle)));
-    let pixel_direction = normalize(to_pixel);
-    let cos_angle = dot(light_direction, pixel_direction);
-    let cone_cos = cos(radians(shaderParams.cone));
+    let smooth_range = mix(0.1, 0.001, clamped_sharpness);
+    let cone_factor = smoothstep(cone_cos - smooth_range, cone_cos + smooth_range, cos_angle);
 
-    let smooth_range = mix(0.5, 0.001, min(shaderParams.sharpness, 1.0));
-    let cone_edge0 = mix(cone_cos - smooth_range, cone_cos, min(shaderParams.sharpness, 1.0));
-    let cone_edge1 = mix(cone_cos + smooth_range, cone_cos, min(shaderParams.sharpness, 1.0));
-    let cone_factor = smoothstep(cone_edge0, cone_edge1, cos_angle);
+    let normalized_dist = length(to_pixel) * 2.0;
+    let amount_norm = shaderParams.amount * 0.01;
+    let amount_factor = 1.0 - smoothstep(amount_norm - smooth_range, amount_norm + smooth_range, 1.0 - normalized_dist);
 
-    let distance_from_center = length(to_pixel);
-    let max_distance = 0.5;
-    let normalized_distance = distance_from_center / max_distance;
-
-    let amount_smooth_range = mix(0.5, 0.001, min(shaderParams.sharpness, 1.0));
-    let amount_edge0 = mix(0.0, shaderParams.amount * 0.01, min(shaderParams.sharpness, 1.0));
-    let amount_edge1 = mix(shaderParams.amount * 0.01, shaderParams.amount * 0.01, min(shaderParams.sharpness, 1.0));
-    let amount_factor = 1.0 - smoothstep(amount_edge0 - amount_smooth_range, amount_edge1 + amount_smooth_range, 1.0 - normalized_distance);
-
-    let inline_alpha = front.a * shaderParams.opacity * cone_factor * amount_factor * threshold_factor;
-
-    let normal_blend = mix(front.rgb, shaderParams.rim_color, inline_alpha);
-    let additive_blend = front.rgb + shaderParams.rim_color * inline_alpha;
+    let rim_alpha = front.a * shaderParams.opacity * cone_factor * amount_factor;
+    let normal_blend = mix(front.rgb, shaderParams.rim_color, rim_alpha);
+    let additive_blend = front.rgb + shaderParams.rim_color * rim_alpha;
     let result_rgb = mix(normal_blend, additive_blend, shaderParams.blending);
 
-    var output : FragmentOutput;
     output.color = vec4<f32>(result_rgb, front.a);
     return output;
 }
