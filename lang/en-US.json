@@ -1,0 +1,24 @@
+﻿{
+  "$schema": "../../effect.lang.schema.json",
+
+  "languageTag": "en-US",
+  "fileDescription": "Strings for the 'Rim Inline' effect.",
+  "text": {
+    "effects": {
+      "disketaa_rim_inline": {
+        "name": "Rim Inline",
+        "description": "",
+        "parameters": {
+          "rim_color": {
+            "name": "Color",
+            "desc": ""
+          },
+          "angle": {
+            "name": "Angle",
+            "desc": ""
+          }
+        }
+      }
+    }
+  }
+}
