@@ -11,15 +11,23 @@
         "parameters": {
           "rim_color": {
             "name": "Color",
-            "desc": ""
+            "desc": "Sets the color of the rim inline effect."
+          },
+          "blending": {
+            "name": "Blending",
+            "desc": "Controls the mix between normal and additive color blending."
           },
           "opacity": {
             "name": "Opacity",
+            "desc": "Controls the overall visibility of the rim inline effect."
+          },
+          "amount": {
+            "name": "Amount",
             "desc": ""
           },
           "angle": {
             "name": "Angle",
-            "desc": ""
+            "desc": "Sets the direction angle for the rim inline effect in degrees."
           }
         }
       }

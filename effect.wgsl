@@ -7,7 +7,9 @@
 
 struct ShaderParams {
     rim_color : vec3<f32>,
+    blending : f32,
     opacity : f32,
+    amount : f32,
     angle : f32
 };
 
@@ -23,18 +25,24 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let textureSize = vec2<f32>(textureDimensions(textureFront));
     let pixelSize = 1.0 / textureSize;
 
-    let front = textureSample(textureFront, samplerFront, uv);
+    if (shaderParams.opacity == 0.0) {
+        let front = textureSample(textureFront, samplerFront, uv);
+        var output : FragmentOutput;
+        output.color = front;
+        return output;
+    }
 
+    let front = textureSample(textureFront, samplerFront, uv);
     let angle_rad = radians(shaderParams.angle);
     let offset = vec2<f32>(cos(angle_rad), sin(angle_rad)) * pixelSize * 2.0;
     let offset_coord = clamp(uv + offset, vec2<f32>(0.001), vec2<f32>(0.999));
     let offset_sample = textureSample(textureFront, samplerFront, offset_coord);
 
     let inline_alpha = front.a * (1.0 - offset_sample.a) * shaderParams.opacity;
-    let should_skip = select(0.0, 1.0, front.a == 0.0 || shaderParams.opacity == 0.0);
-    let effective_alpha = inline_alpha * (1.0 - should_skip);
 
-    let result_rgb = mix(front.rgb, shaderParams.rim_color, effective_alpha);
+    let normal_blend = mix(front.rgb, shaderParams.rim_color, inline_alpha);
+    let additive_blend = front.rgb + shaderParams.rim_color * inline_alpha;
+    let result_rgb = mix(normal_blend, additive_blend, shaderParams.blending);
 
     var output : FragmentOutput;
     output.color = vec4<f32>(result_rgb, front.a);

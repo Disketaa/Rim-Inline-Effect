@@ -39,10 +39,22 @@
       "interpolatable": true
     },
     {
+      "id": "blending",
+      "type": "percent",
+      "initial-value": 1.0,
+      "uniform": "blending"
+    },
+    {
       "id": "opacity",
       "type": "percent",
       "initial-value": 0.5,
       "uniform": "opacity"
+    },
+    {
+      "id": "amount",
+      "type": "float",
+      "initial-value": 1.0,
+      "uniform": "amount"
     },
     {
       "id": "angle",
