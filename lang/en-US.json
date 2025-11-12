@@ -23,7 +23,7 @@
           },
           "amount": {
             "name": "Amount",
-            "desc": ""
+            "desc": "Controls the thickness of the rim inline effect in pixels."
           },
           "angle": {
             "name": "Angle",

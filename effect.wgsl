@@ -34,7 +34,7 @@ fn main(input : FragmentInput) -> FragmentOutput {
 
     let front = textureSample(textureFront, samplerFront, uv);
     let angle_rad = radians(shaderParams.angle);
-    let offset = vec2<f32>(cos(angle_rad), sin(angle_rad)) * pixelSize * 2.0;
+    let offset = vec2<f32>(cos(angle_rad), sin(angle_rad)) * pixelSize * shaderParams.amount;
     let offset_coord = clamp(uv + offset, vec2<f32>(0.001), vec2<f32>(0.999));
     let offset_sample = textureSample(textureFront, samplerFront, offset_coord);
 

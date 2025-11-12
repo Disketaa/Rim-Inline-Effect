@@ -24,7 +24,7 @@ void main(void)
     }
 
     mediump float angle_rad = radians(angle);
-    mediump vec2 offset = vec2(cos(angle_rad), sin(angle_rad)) * pixelSize * 2.0;
+    mediump vec2 offset = vec2(cos(angle_rad), sin(angle_rad)) * pixelSize * amount;
     mediump vec4 offset_sample = texture2D(samplerFront, vTex + offset);
     mediump float inline_alpha = front.a * (1.0 - offset_sample.a) * opacity;
 
