@@ -11,7 +11,8 @@ struct ShaderParams {
     blending : f32,
     angle : f32,
     cone : f32,
-    amount : f32
+    amount : f32,
+    sharpness : f32
 };
 
 %%SHADERPARAMS_BINDING%% var<uniform> shaderParams : ShaderParams;
@@ -40,12 +41,20 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let pixel_direction = normalize(to_pixel);
     let cos_angle = dot(light_direction, pixel_direction);
     let cone_cos = cos(radians(shaderParams.cone));
-    let cone_factor = smoothstep(cone_cos, 1.0, cos_angle);
+
+    let smooth_range = mix(0.5, 0.001, min(shaderParams.sharpness, 1.0));
+    let cone_edge0 = mix(cone_cos - smooth_range, cone_cos, min(shaderParams.sharpness, 1.0));
+    let cone_edge1 = mix(cone_cos + smooth_range, cone_cos, min(shaderParams.sharpness, 1.0));
+    let cone_factor = smoothstep(cone_edge0, cone_edge1, cos_angle);
 
     let distance_from_center = length(to_pixel);
     let max_distance = 0.5;
     let normalized_distance = distance_from_center / max_distance;
-    let amount_factor = 1.0 - smoothstep(0.0, shaderParams.amount * 0.01, 1.0 - normalized_distance);
+
+    let amount_smooth_range = mix(0.5, 0.001, min(shaderParams.sharpness, 1.0));
+    let amount_edge0 = mix(0.0, shaderParams.amount * 0.01, min(shaderParams.sharpness, 1.0));
+    let amount_edge1 = mix(shaderParams.amount * 0.01, shaderParams.amount * 0.01, min(shaderParams.sharpness, 1.0));
+    let amount_factor = 1.0 - smoothstep(amount_edge0 - amount_smooth_range, amount_edge1 + amount_smooth_range, 1.0 - normalized_distance);
 
     let inline_alpha = front.a * shaderParams.opacity * cone_factor * amount_factor;
 

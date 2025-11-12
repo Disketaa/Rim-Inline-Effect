@@ -32,6 +32,10 @@
           "amount": {
             "name": "Amount",
             "desc": "Controls the thickness of the rim inline effect in pixels."
+          },
+          "sharpness": {
+            "name": "Sharpness",
+            "desc": "Controls the hardness of the rim inline effect."
           }
         }
       }

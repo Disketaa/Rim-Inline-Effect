@@ -4,6 +4,7 @@ uniform mediump float blending;
 uniform mediump float angle;
 uniform mediump float cone;
 uniform mediump float amount;
+uniform mediump float sharpness;
 
 varying mediump vec2 vTex;
 uniform lowp sampler2D samplerFront;
@@ -30,12 +31,20 @@ void main(void)
     mediump vec2 pixel_direction = normalize(to_pixel);
     mediump float cos_angle = dot(light_direction, pixel_direction);
     mediump float cone_cos = cos(radians(cone));
-    mediump float cone_factor = smoothstep(cone_cos, 1.0, cos_angle);
+
+    mediump float smooth_range = mix(0.5, 0.001, min(sharpness, 1.0));
+    mediump float cone_edge0 = mix(cone_cos - smooth_range, cone_cos, min(sharpness, 1.0));
+    mediump float cone_edge1 = mix(cone_cos + smooth_range, cone_cos, min(sharpness, 1.0));
+    mediump float cone_factor = smoothstep(cone_edge0, cone_edge1, cos_angle);
 
     mediump float distance_from_center = length(to_pixel);
     mediump float max_distance = 0.5;
     mediump float normalized_distance = distance_from_center / max_distance;
-    mediump float amount_factor = 1.0 - smoothstep(0.0, amount * 0.01, 1.0 - normalized_distance);
+
+    mediump float amount_smooth_range = mix(0.5, 0.001, min(sharpness, 1.0));
+    mediump float amount_edge0 = mix(0.0, amount * 0.01, min(sharpness, 1.0));
+    mediump float amount_edge1 = mix(amount * 0.01, amount * 0.01, min(sharpness, 1.0));
+    mediump float amount_factor = 1.0 - smoothstep(amount_edge0 - amount_smooth_range, amount_edge1 + amount_smooth_range, 1.0 - normalized_distance);
 
     mediump float inline_alpha = front.a * opacity * cone_factor * amount_factor;
 

@@ -68,6 +68,12 @@
       "type": "float",
       "initial-value": 1.0,
       "uniform": "amount"
+    },
+    {
+      "id": "sharpness",
+      "type": "percent",
+      "initial-value": 0.0,
+      "uniform": "sharpness"
     }
   ]
 }
