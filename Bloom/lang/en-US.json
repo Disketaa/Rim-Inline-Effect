@@ -7,7 +7,7 @@
     "effects": {
       "disketaa_bloom": {
         "name": "Bloom",
-        "description": "A post-process glow that mimics intense brightness and light scattering.",
+        "description": "Creates a post-process glow that mimics intense brightness and light scattering.",
         "parameters": {
           "intensity": {
             "name": "Intensity",
@@ -27,7 +27,7 @@
           },
           "samples": {
             "name": "Samples",
-            "desc": "Number of samples used for blur calculation."
+            "desc": "Sets the number of samples used for blur calculation."
           }
         }
       }

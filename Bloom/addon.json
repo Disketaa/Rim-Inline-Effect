@@ -10,7 +10,7 @@
 
   "version": "0.4",
   "author": "Disketaa",
-  "website": "https://github.com/Disketaa/Bloom-Effect/tree/main",
+  "website": "https://github.com/Disketaa/Shaders/tree/main/Bloom",
   "documentation": "https://www.construct.net/en/make-games/addons/1514/bloom/documentation",
   "description": "A post-process glow that mimics intense brightness and light scattering.",
   "file-list": [

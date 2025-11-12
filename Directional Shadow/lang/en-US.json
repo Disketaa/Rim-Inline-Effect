@@ -5,49 +5,49 @@
   "fileDescription": "Strings for the 'Directional Shadow' effect.",
   "text": {
     "effects": {
-      "disketaa_directional_shadow": {
-        "name": "Directional shadow",
-        "description": "Project a directional shadow with adjustable angle, scale, and offset to simulate realistic lighting from any direction.",
+      "disketaa_directional-shadow": {
+        "name": "Directional Shadow",
+        "description": "Projects a directional shadow with adjustable angle, scale, and offset to simulate drop shadow.",
         "parameters": {
           "shadow_color": {
             "name": "Color",
-            "desc": "The color of the shadow."
+            "desc": "Sets the color of the shadow."
           },
           "shadow_opacity": {
             "name": "Opacity",
-            "desc": "Opacity of the shadow."
+            "desc": "Adjusts the opacity of the shadow."
           },
           "sharpness": {
             "name": "Sharpness",
-            "desc": "Controls the hardness of the shadow."
+            "desc": "Controls the hardness of the shadow edges."
           },
           "angle": {
             "name": "Angle",
-            "desc": "Rotation angle of the shadow in degrees."
+            "desc": "Sets the rotation angle of the shadow in degrees."
           },
           "horizontal_center": {
-            "name": "Horizontal Center",
-            "desc": "Horizontal pivot point for the scaling."
+            "name": "Horizontal center",
+            "desc": "Sets the horizontal pivot point for scaling."
           },
           "vertical_center": {
-            "name": "Vertical Center",
-            "desc": "Vertical pivot point for the scaling."
+            "name": "Vertical center",
+            "desc": "Sets the vertical pivot point for scaling."
           },
           "horizontal_scale": {
-            "name": "Horizontal Scale",
-            "desc": "Horizontal scale of the shadow."
+            "name": "Horizontal scale",
+            "desc": "Adjusts the horizontal scale of the shadow."
           },
           "vertical_scale": {
-            "name": "Vertical Scale",
-            "desc": "Vertical scale of the shadow."
+            "name": "Vertical scale",
+            "desc": "Adjusts the vertical scale of the shadow."
           },
           "horizontal_offset": {
-            "name": "Horizontal Offset",
-            "desc": "Horizontal offset of the shadow relative to the original image."
+            "name": "Horizontal offset",
+            "desc": "Sets the horizontal offset of the shadow relative to the original image."
           },
           "vertical_offset": {
-            "name": "Vertical Offset",
-            "desc": "Vertical offset of the shadow relative to the original image."
+            "name": "Vertical offset",
+            "desc": "Sets the vertical offset of the shadow relative to the original image."
           }
         }
       }

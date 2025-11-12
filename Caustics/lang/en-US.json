@@ -11,42 +11,42 @@
         "parameters": {
           "color": {
             "name": "Color",
-            "desc": "Base color of the caustic light patterns."
+            "desc": "Sets the color of the caustic light patterns."
           },
           "speed": {
             "name": "Speed",
-            "desc": "Animation speed multiplier for the moving light patterns."
+            "desc": "Adjusts the animation speed multiplier for the moving light patterns."
           },
           "horizontal_scale": {
-            "name": "Horizontal Scale",
+            "name": "Horizontal scale",
             "desc": "Stretches caustics horizontally."
           },
           "vertical_scale": {
-            "name": "Vertical Scale",
+            "name": "Vertical scale",
             "desc": "Stretches caustics vertically."
           },
           "threshold": {
             "name": "Threshold",
-            "desc": "Minimum brightness for caustics to appear."
+            "desc": "Controls the minimum brightness for caustics to appear."
           },
           "sharpness": {
             "name": "Sharpness",
-            "desc": "Edge definition of caustic patterns."
+            "desc": "Controls the edge definition of caustic patterns."
           },
           "pixel_size": {
-            "name": "Pixel Size",
-            "desc": "Pixelization factor."
+            "name": "Pixel size",
+            "desc": "Sets pixelization strength factor."
           },
           "glow_intensity": {
-            "name": "Glow Intensity",
+            "name": "Glow intensity",
             "desc": "Creates white glow at the center of caustic lines."
           },
           "glow_threshold": {
-            "name": "Glow Threshold",
-            "desc": "Minimum value for glow to appear."
+            "name": "Glow threshold",
+            "desc": "Sets the minimum value for glow to appear."
           },
           "opacity_variation": {
-            "name": "Opacity Variation",
+            "name": "Opacity variation",
             "desc": "Adds smooth opacity gradients across the caustic patterns for more natural look."
           }
         }

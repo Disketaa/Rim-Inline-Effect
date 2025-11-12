@@ -4,13 +4,13 @@
   "is-c3-addon": true,
   "type": "effect",
   "name": "Directional Shadow",
-  "id": "Disketaa_Directional_Shadow",
+  "id": "Disketaa_Directional-Shadow",
 
   "supported-renderers": ["webgl", "webgpu"],
 
   "version": "0.1",
   "author": "Disketaa",
-  "website": "https://github.com/Disketaa/Dropshadow-Effect",
+  "website": "https://github.com/Disketaa/Shaders/tree/main/Directional%20Shadow",
   "documentation": "https://www.construct.net/en/make-games/addons/1516/shadow/documentation",
   "description": "Projects a directional shadow with adjustable angle, scale, and offset to simulate realistic lighting from any direction.",
   "file-list": [
