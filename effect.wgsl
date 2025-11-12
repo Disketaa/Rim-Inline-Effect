@@ -57,11 +57,12 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let amount_norm = shaderParams.amount * 0.01;
     let amount_factor = 1.0 - smoothstep(amount_norm - smooth_range, amount_norm + smooth_range, 1.0 - normalized_dist);
 
-    let rim_alpha = front.a * shaderParams.opacity * cone_factor * amount_factor;
+    let threshold_factor = step(shaderParams.threshold, brightness);
+    let rim_alpha = shaderParams.opacity * cone_factor * amount_factor * threshold_factor * front.a;
     let normal_blend = mix(front.rgb, shaderParams.rim_color, rim_alpha);
     let additive_blend = front.rgb + shaderParams.rim_color * rim_alpha;
     let result_rgb = mix(normal_blend, additive_blend, shaderParams.blending);
-
     output.color = vec4<f32>(result_rgb, front.a);
+
     return output;
 }
