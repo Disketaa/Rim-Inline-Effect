@@ -11,7 +11,7 @@ uniform mediump vec2 pixelSize;
 
 void main(void)
 {
-    if (opacity == 0.0) {
+    if (opacity == 0.0 || amount == 0.0) {
         mediump vec4 front = texture2D(samplerFront, vTex);
         gl_FragColor = front;
         return;
@@ -32,7 +32,12 @@ void main(void)
     mediump float cone_cos = cos(radians(cone));
     mediump float cone_factor = smoothstep(cone_cos, 1.0, cos_angle);
 
-    mediump float inline_alpha = front.a * opacity * cone_factor;
+    mediump float distance_from_center = length(to_pixel);
+    mediump float max_distance = 0.5;
+    mediump float normalized_distance = distance_from_center / max_distance;
+    mediump float amount_factor = 1.0 - smoothstep(0.0, amount * 0.01, 1.0 - normalized_distance);
+
+    mediump float inline_alpha = front.a * opacity * cone_factor * amount_factor;
 
     mediump vec3 normal_blend = mix(front.rgb, rim_color, inline_alpha);
     mediump vec3 additive_blend = front.rgb + rim_color * inline_alpha;

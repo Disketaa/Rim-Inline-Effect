@@ -24,7 +24,7 @@ struct ShaderParams {
 fn main(input : FragmentInput) -> FragmentOutput {
     let uv = input.fragUV;
 
-    if (shaderParams.opacity == 0.0) {
+    if (shaderParams.opacity == 0.0 || shaderParams.amount == 0.0) {
         let front = textureSample(textureFront, samplerFront, uv);
         var output : FragmentOutput;
         output.color = front;
@@ -42,7 +42,12 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let cone_cos = cos(radians(shaderParams.cone));
     let cone_factor = smoothstep(cone_cos, 1.0, cos_angle);
 
-    let inline_alpha = front.a * shaderParams.opacity * cone_factor;
+    let distance_from_center = length(to_pixel);
+    let max_distance = 0.5;
+    let normalized_distance = distance_from_center / max_distance;
+    let amount_factor = 1.0 - smoothstep(0.0, shaderParams.amount * 0.01, 1.0 - normalized_distance);
+
+    let inline_alpha = front.a * shaderParams.opacity * cone_factor * amount_factor;
 
     let normal_blend = mix(front.rgb, shaderParams.rim_color, inline_alpha);
     let additive_blend = front.rgb + shaderParams.rim_color * inline_alpha;
