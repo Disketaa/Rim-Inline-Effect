@@ -7,7 +7,7 @@
     "effects": {
       "disketaa_caustics": {
         "name": "Каустика",
-        "description": "Создать динамические световые узоры.",
+        "description": "Создать динамические световые водные узоры.",
         "parameters": {
           "color": {
             "name": "Цвет",

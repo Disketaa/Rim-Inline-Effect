@@ -7,7 +7,7 @@
     "effects": {
       "disketaa_caustics": {
         "name": "Caustics",
-        "description": "Dynamic water caustic light patterns.",
+        "description": "Generates a dynamic water caustic light patterns.",
         "parameters": {
           "color": {
             "name": "Color",

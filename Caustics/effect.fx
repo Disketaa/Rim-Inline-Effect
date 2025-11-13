@@ -1,22 +1,41 @@
-﻿varying mediump vec2 vTex;
-uniform mediump float seconds;
+﻿#ifdef GL_FRAGMENT_PRECISION_HIGH
+    precision highp float;
+#else
+    precision mediump float;
+#endif
 
-uniform lowp vec3 caustic_color;
-uniform mediump float speed;
-uniform mediump float horizontal_scale;
-uniform mediump float vertical_scale;
-uniform mediump float threshold;
-uniform mediump float sharpness;
-uniform mediump float pixel_size;
-uniform mediump float glow_intensity;
-uniform mediump float glow_threshold;
-uniform mediump float opacity_variation;
+varying vec2 vTex;
 uniform sampler2D samplerFront;
 
-mediump float calculateCaustic(inout vec4 k_param, mat3 matrix_param, mediump float scale_param) {
+uniform vec3 caustic_color;
+uniform float speed;
+uniform float horizontal_scale;
+uniform float vertical_scale;
+uniform float threshold;
+uniform float sharpness;
+uniform float pixel_size;
+uniform float glow_intensity;
+uniform float glow_threshold;
+uniform float opacity_variation;
+
+uniform vec2 srcOriginStart;
+uniform vec2 srcOriginEnd;
+uniform vec2 layoutStart;
+uniform vec2 layoutEnd;
+uniform float seconds;
+uniform vec2 pixelSize;
+
+const vec3 WEIGHTS = vec3(0.2126, 0.7152, 0.0722);
+
+float luminance(vec3 rgb) {
+    return dot(rgb, WEIGHTS);
+}
+
+vec4 calculateCaustic(inout vec4 k_param, mat3 matrix_param, float scale_param) {
     mat3 scaled_matrix = matrix_param * scale_param;
-    k_param.xyw *= scaled_matrix;
-    return mediump float(length(0.5 - fract(k_param.xyw)));
+    vec3 transformed_coords = vec3(k_param.x, k_param.y, k_param.w) * scaled_matrix;
+    k_param = vec4(transformed_coords.x, transformed_coords.y, k_param.z, transformed_coords.z);
+    return vec4(length(0.5 - fract(k_param.xyw)), 0.0, 0.0, 0.0);
 }
 
 float simpleHash(vec2 p) {
@@ -34,6 +53,10 @@ float smoothNoise(vec2 p) {
     return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
 }
 
+vec2 c3_getLayoutPos(vec2 fragUV) {
+    return mix(layoutStart, layoutEnd, fragUV);
+}
+
 void main(void) {
     vec2 screen_coord = c3_getLayoutPos(vTex);
 
@@ -42,21 +65,26 @@ void main(void) {
         return;
     }
 
+    float pixel_size_value = pixel_size;
     vec2 current_coord = screen_coord;
-    if (pixel_size > 0.0) {
-        current_coord = floor(current_coord / pixel_size) * pixel_size;
+    if (pixel_size_value > 0.0) {
+        current_coord = floor(current_coord / pixel_size_value) * pixel_size_value;
     }
 
-    mediump float current_time = seconds * speed;
+    float current_time = seconds * speed;
 
-    mediump mat3 caustic_matrix = mat3(-2.0, -1.0, 2.0, 3.0, -2.0, 1.0, 1.0, 2.0, 2.0);
+    mat3 caustic_matrix = mat3(
+        -2.0, -1.0, 2.0,
+         3.0, -2.0, 1.0,
+         1.0,  2.0, 2.0
+    );
 
     vec4 caustic_params = vec4(current_coord.x, current_coord.y, 0.0, current_time);
     vec2 scaled_coords = vec2(caustic_params.x / horizontal_scale, caustic_params.y / vertical_scale) / 100.0;
-    caustic_params.xy = scaled_coords;
+    caustic_params = vec4(scaled_coords, caustic_params.z, caustic_params.w);
 
-    float min_value_1 = min(calculateCaustic(caustic_params, caustic_matrix, 0.5), calculateCaustic(caustic_params, caustic_matrix, 0.4));
-    float min_value_2 = min(min_value_1, calculateCaustic(caustic_params, caustic_matrix, 0.3));
+    float min_value_1 = min(calculateCaustic(caustic_params, caustic_matrix, 0.5).x, calculateCaustic(caustic_params, caustic_matrix, 0.4).x);
+    float min_value_2 = min(min_value_1, calculateCaustic(caustic_params, caustic_matrix, 0.3).x);
 
     float caustic_intensity = 1.0 - pow(min_value_2, 7.0) * 25.0;
     float base_intensity = 1.0 - smoothstep(threshold, threshold + 0.3, caustic_intensity);
@@ -64,12 +92,12 @@ void main(void) {
     glow_layer *= glow_intensity;
 
     if (sharpness > 0.0) {
-        mediump float sharpness_cutoff = 0.5 + sharpness * 0.5;
+        float sharpness_cutoff = 0.5 + sharpness * 0.5;
         base_intensity = mix(base_intensity, step(sharpness_cutoff, base_intensity), sharpness);
         glow_layer = mix(glow_layer, step(sharpness_cutoff, glow_layer), sharpness);
     }
 
-    lowp vec4 original_color = texture2D(samplerFront, vTex);
+    vec4 original_color = texture2D(samplerFront, vTex);
 
     float final_alpha = base_intensity * original_color.a;
 
@@ -81,9 +109,9 @@ void main(void) {
         final_alpha *= variation;
     }
 
-    lowp vec3 base_color = caustic_color * final_alpha;
-    lowp vec3 glow_color = vec3(1.0, 1.0, 1.0) * glow_layer * final_alpha;
-    lowp vec3 final_color = base_color + glow_color;
+    vec3 base_color = caustic_color * final_alpha;
+    vec3 glow_color = vec3(1.0) * glow_layer * final_alpha;
+    vec3 final_color = base_color + glow_color;
 
     gl_FragColor = vec4(final_color, final_alpha);
 }
