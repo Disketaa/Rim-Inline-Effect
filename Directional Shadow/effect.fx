@@ -14,6 +14,7 @@ uniform mediump vec2 srcOriginStart;
 uniform mediump vec2 srcOriginEnd;
 uniform mediump vec2 layoutStart;
 uniform mediump vec2 layoutEnd;
+uniform mediump float layerScale;
 
 void main() {
   if (shadow_opacity <= 0.0) {
@@ -30,11 +31,10 @@ void main() {
 
   mediump vec2 object_size = srcOriginEnd - srcOriginStart;
   mediump vec2 object_coord = (vTex - srcOriginStart) / object_size;
-  
 
   mediump vec2 offset_coord = object_coord;
   if (horizontal_offset != 0.0 || vertical_offset != 0.0) {
-    offset_coord += vec2(-horizontal_offset * texelSize.x, -vertical_offset * texelSize.y);
+    offset_coord += vec2(-horizontal_offset, vertical_offset) * pixelSize / layerScale;
   }
 
   mediump vec2 scaled_coord = offset_coord;
