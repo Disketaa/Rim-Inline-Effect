@@ -1,0 +1,43 @@
+{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for dropshad.",
+	"text": {
+		"effects": {
+			"dropshadcolor": {
+				"name": "DropShadowColor",
+				"description": " Dropshadow color effect for 2D player sprite.",
+				"help-url": "",
+				"parameters": {
+					"rescalefactor": {
+						"name": "Rescalefactor",
+						"desc": "Reduce the shadow height by a percentage (0. = no change) up to 100, 74% recommended"
+					},
+					"bluramount": {
+						"name": "blurAmount",
+						"desc": "blur amount. 0 to 6,  4 recommended"
+					},
+					"shadowopacity": {
+						"name": "shadowOpacity",
+						"desc": "shadow opacity.0 to 100, default 16"
+					},
+					"red": {
+						"name": "Red",
+						"desc": "Red shadow color 0 to 100, default 20"
+					},
+					"green": {
+						"name": "Green",
+						"desc": "Green shadow color 0 to 100, default 20"
+					},
+					"blue": {
+						"name": "Blue",
+						"desc": "Blue shadow color 0 to 100, default 20"
+					},
+					"xskew": {
+						"name": "X Skew",
+						"desc": "Shadow X Skew, try -100 to 100"
+					}
+				}
+			}
+		}
+	}
+}

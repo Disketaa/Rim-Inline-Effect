@@ -1,0 +1,81 @@
+{
+	"conversioncomment": "Converted with C2C3AddonConverter v1.0.0.15",
+	"is-c3-addon": true,
+	"type": "effect",
+	"name": "DropShadColor",
+	"id": "DropShadColor",
+	"version": "1.0.0.0",
+	"author": "chrisbrobs2016",
+	"website": "https://www.construct.net",
+	"documentation": "https://www.construct.net",
+	"description": " Dropshadow color effect for 2D player sprite.",
+	"file-list": [
+		"lang/en-US.json",
+		"addon.json",
+		"effect.fx"
+	],
+	
+	"category": "distortion",
+	"blends-background": false,
+	"cross-sampling": true,
+	"preserves-opaqueness": false,
+	"animated": false,
+	"must-predraw": false,
+	"extend-box": {
+		"horizontal": 0,
+		"vertical": 0
+	},
+	"is-deprecated": false,
+	
+	"parameters": [
+		{
+			"id": "rescalefactor",
+			"c2id": "rescalefactor",
+			"type": "percent",
+			"initial-value": 0.74,
+			"uniform": "Rescalefactor"
+		},
+		{
+			"id": "bluramount",
+			"c2id": "bluramount",
+			"type": "float",
+			"initial-value": 2,
+			"uniform": "blurAmount"
+		},
+		{
+			"id": "shadowopacity",
+			"c2id": "shadowopacity",
+			"type": "percent",
+			"initial-value": 0.16,
+			"uniform": "shadowOpacity"
+		},
+		{
+			"id": "red",
+			"c2id": "red",
+			"type": "percent",
+			"initial-value": 0.2,
+			"uniform": "red"
+		 },
+		 {
+			"id": "green",
+			"c2id": "green",
+			"type": "percent",
+			"initial-value": 0.2,
+			"uniform": "green"
+		 },
+		 {
+			"id": "blue",
+			"c2id": "blue",
+			"type": "percent",
+			"initial-value": 0.2,
+			"uniform": "blue"
+		 },
+		 {
+			"id": "xskew",
+			"c2id": "xskew",
+			"type": "float",
+			"initial-value": 0.0,
+			"uniform": "xSkew"
+		 }
+	]
+}
