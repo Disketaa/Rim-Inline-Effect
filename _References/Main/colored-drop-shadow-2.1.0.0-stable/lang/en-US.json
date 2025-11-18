@@ -1,0 +1,30 @@
+{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for the 'DropShadow' effect.",
+	"text": {
+		"effects": {
+			"skymen_dropshadow": {
+				"name": "DropShadow",
+				"description": "A simple drop shadow effect",
+				"parameters": {
+					"shadowColor": {
+    "name": "Color",
+    "desc": "Color of the shadow"
+},
+"shadowOpacity": {
+    "name": "Opacity",
+    "desc": "Opacity of the shadow"
+},
+"shadowDistance": {
+    "name": "Distance",
+    "desc": "Distance of the shadow"
+},
+"shadowAngle": {
+    "name": "Angle",
+    "desc": "Angle of the shadow"
+}
+				}
+			}
+		}
+	}
+}

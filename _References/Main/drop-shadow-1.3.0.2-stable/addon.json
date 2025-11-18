@@ -1,0 +1,93 @@
+{
+	"$schema": "../effect.addon.schema.json",
+
+	"is-c3-addon": true,
+	"type": "effect",
+	"name": "Drop Shadow",
+	"id": "xhxiaiein_effect_dropshadow",
+
+	"supported-renderers": ["webgl", "webgpu"],
+
+	"version": "1.3.0.2",
+	"author": "XHXIAIEIN, Zane Little",
+	"website": "https://www.construct.net/en/make-games/addons/1517/drop-shadow",
+	"documentation": "https://www.construct.net/en/make-games/addons/1517/drop-shadow/documentation",
+	"description": "A versatile drop shadow effect with color controls and blur.",
+
+	"file-list": [
+		"lang/en-US.json",
+		"lang/zh-CN.json",
+		"addon.json",
+		"effect.fx",
+		"effect.wgsl"
+	],
+
+	"category": "other",
+	"blends-background": true,
+	"cross-sampling": false,
+	"preserves-opaqueness": false,
+	"animated": false,
+	"extend-box": {
+		"horizontal": 256,
+		"vertical": 256
+	},
+
+	"parameters": [
+		{
+			"id": "distance",
+			"type": "float",
+			"initial-value": 10.0,
+			"uniform": "uDistance",
+			"interpolatable": true
+		},
+		{
+			"id": "angle",
+			"type": "float",
+			"initial-value": 110.0,
+			"uniform": "uAngle",
+			"interpolatable": true
+		},
+		{
+			"id": "opacity",
+			"type": "percent",
+			"initial-value": 0.5,
+			"uniform": "uOpacity",
+			"interpolatable": true
+		},
+		{
+			"id": "hue",
+			"type": "float",
+			"initial-value": 0.0,
+			"uniform": "uHue",
+			"interpolatable": true
+		},
+		{
+			"id": "saturation",
+			"type": "percent",
+			"initial-value": 0.0,
+			"uniform": "uSaturation",
+			"interpolatable": true
+		},
+		{
+			"id": "brightness",
+			"type": "percent",
+			"initial-value": 0.0,
+			"uniform": "uBrightness",
+			"interpolatable": true
+		},
+		{
+			"id": "blurradius",
+			"type": "float",
+			"initial-value": 0.0,
+			"uniform": "uBlurRadius",
+			"interpolatable": true
+		},
+		{
+			"id": "blurquality",
+			"type": "percent",
+			"initial-value": 0.5,
+			"uniform": "uBlurQuality",
+			"interpolatable": false
+		}
+	]
+}

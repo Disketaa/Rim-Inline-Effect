@@ -1,0 +1,48 @@
+{
+	"$schema": "../../effect.lang.schema.json",
+
+	"languageTag": "zh-CN",
+	"fileDescription": "添加可自定义的投影效果，支持颜色控制和模糊质量",
+	"text": {
+		"effects": {
+			"xhxiaiein_effect_dropshadow": {
+				"name": "投影",
+				"description": "投影效果，支持颜色控制和模糊。",
+				"parameters": {
+					"distance": {
+						"name": "距离",
+						"desc": "阴影与对象的距离。"
+					},
+					"angle": {
+						"name": "角度",
+						"desc": "阴影的角度，单位为度（0-360）。"
+					},
+					"opacity": {
+						"name": "不透明度",
+						"desc": "阴影的不透明度（0-100%）。"
+					},
+					"hue": {
+						"name": "色相",
+						"desc": "阴影颜色的色相调整（0-360度）。"
+					},
+					"saturation": {
+						"name": "饱和度",
+						"desc": "阴影颜色的饱和度（0-100%）。"
+					},
+					"brightness": {
+						"name": "亮度",
+						"desc": "阴影颜色的亮度（0-100%）。"
+					},
+					"blurradius": {
+						"name": "模糊半径",
+						"desc": "柔和阴影的模糊半径。"
+					},
+					"blurquality": {
+						"name": "模糊质量",
+						"desc": "模糊采样质量。低：更快，高：更平滑，但更耗性能。建议值为50%。"
+					}
+				}
+			}
+		}
+	}
+}

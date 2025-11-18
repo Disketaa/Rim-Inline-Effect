@@ -1,0 +1,30 @@
+{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for the 'RimLight' effect.",
+	"text": {
+		"effects": {
+			"richardlems_rimlight": {
+				"name": "Rim Light",
+				"description": "A simple 'rim light' with adjustable size, intensity, angle and color.",
+				"parameters": {
+					"clr": {
+    "name": "Color",
+    "desc": "Color of the rim light."
+},
+"s": {
+    "name": "Size",
+    "desc": "She size of the rim light, in pixels."
+},
+"d": {
+    "name": "Intensity",
+    "desc": "Intensity of the effect."
+},
+"angl": {
+    "name": "Angle",
+    "desc": "Angle of the rim light in degrees."
+}
+				}
+			}
+		}
+	}
+}

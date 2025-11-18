@@ -1,0 +1,54 @@
+{
+	"languageTag": "ru-RU",
+	"fileDescription": "Перевод для эффекта 'hp_fx'.",
+	"text": {
+		"effects": {
+			"hp_fx": {
+				"name": "hp_fx",
+				"description": "hp_fx",
+				"parameters": {
+					"colorHp": {
+    "name": "цвет HP",
+    "desc": "цвет HP"
+},
+"progress": {
+    "name": "HP",
+    "desc": "HP"
+},
+"outlineBg": {
+    "name": "контур bg",
+    "desc": "контур фона"
+},
+"width": {
+    "name": "ширина",
+    "desc": "ширина"
+},
+"height": {
+    "name": "высота",
+    "desc": "высота"
+},
+"colorBg": {
+    "name": "цвет bg",
+    "desc": "цвет фона"
+},
+"positionY": {
+    "name": "позиция Y",
+    "desc": "позиция Y"
+},
+"opacity": {
+    "name": "непр-ть HP",
+    "desc": "непрозрачность HP"
+},
+"opacityBg": {
+    "name": "непр-ть bg",
+    "desc": "непрозрачность фона"
+},
+"progressMax": {
+    "name": "мак HP",
+    "desc": "максимум HP"
+}
+				}
+			}
+		}
+	}
+}

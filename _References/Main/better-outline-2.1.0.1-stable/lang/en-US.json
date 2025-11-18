@@ -1,0 +1,34 @@
+{
+  "languageTag": "en-US",
+  "fileDescription": "Strings for skymen_betteroutline.",
+  "text": {
+    "effects": {
+      "skymen_betteroutline": {
+        "name": "Better Outline",
+        "description": "A better outline addon",
+        "parameters": {
+          "color": {
+            "name": "Color",
+            "desc": "The color of the outline"
+          },
+          "width": {
+            "name": "Width",
+            "desc": "The width of the outline"
+          },
+          "precision-step": {
+            "name": "Precision Step",
+            "desc": "The step in pixels between each sub outline the shader will render"
+          },
+          "samples": {
+            "name": "Samples",
+            "desc": "The number of angles the outline will render at"
+          },
+          "opacity": {
+            "name": "Opacity",
+            "desc": "The opacity of the outline"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+	"is-c3-addon": true,
+	"type": "effect",
+	"name": "LinearFog",
+	"id": "skymen_LinearFog",
+	"version": "1.0.0.0",
+	"author": "skymen",
+	"website": "https://www.construct.net",
+	"documentation": "https://www.construct.net",
+	"description": "Linear fog",
+	"file-list": [
+		"lang/en-US.json",
+		"addon.json",
+		"effect.fx"
+	],
+	
+	"category": "color",
+	"blends-background": false,
+	"cross-sampling": false,
+	"preserves-opaqueness": false,
+	"animated": false,
+	"must-predraw" : false,
+
+	"extend-box": {
+		"horizontal": 0,
+		"vertical": 0
+	},
+	
+	"parameters": [
+        {
+    "id":"far-color",
+    "type": "color",
+    "initial-value":[0,0,0],
+    "uniform": "farColor"
+},
+{
+    "id":"far-distance",
+    "type": "percent",
+    "initial-value": 1,
+    "uniform": "farDistance"
+},
+{
+    "id":"far-opacity",
+    "type": "percent",
+    "initial-value":1,
+    "uniform": "farOpacity"
+},
+{
+    "id":"near-color",
+    "type": "color",
+    "initial-value":[0,0,0],
+    "uniform": "nearColor"
+},
+{
+    "id":"near-distance",
+    "type": "percent",
+    "initial-value": 0,
+    "uniform": "nearDistance"
+},
+{
+    "id":"near-opacity",
+    "type": "percent",
+    "initial-value":0,
+    "uniform": "nearOpacity"
+}
+	]
+}

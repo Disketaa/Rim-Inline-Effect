@@ -1,0 +1,38 @@
+{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for the 'LinearFog' effect.",
+	"text": {
+		"effects": {
+			"skymen_linearfog": {
+				"name": "LinearFog",
+				"description": "Linear fog",
+				"parameters": {
+					"far-color": {
+    "name": "farColor",
+    "desc": "farColor"
+},
+"far-distance": {
+    "name": "farDistance",
+    "desc": "farDistance"
+},
+"far-opacity": {
+    "name": "farOpacity",
+    "desc": "farOpacity"
+},
+"near-color": {
+    "name": "nearColor",
+    "desc": "nearColor"
+},
+"near-distance": {
+    "name": "nearDistance",
+    "desc": "nearDistance"
+},
+"near-opacity": {
+    "name": "nearOpacity",
+    "desc": "nearOpacity"
+}
+				}
+			}
+		}
+	}
+}

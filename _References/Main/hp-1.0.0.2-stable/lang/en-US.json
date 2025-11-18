@@ -1,0 +1,54 @@
+{
+	"languageTag": "en-US",
+	"fileDescription": "Strings for the 'hp_fx' effect.",
+	"text": {
+		"effects": {
+			"hp_fx": {
+				"name": "hp_fx",
+				"description": "hp_fx",
+				"parameters": {
+					"colorHp": {
+    "name": "color HP",
+    "desc": "color HP"
+},
+"progress": {
+    "name": "HP",
+    "desc": "HP"
+},
+"outlineBg": {
+    "name": "outline bg",
+    "desc": "outline background"
+},
+"width": {
+    "name": "width",
+    "desc": "width"
+},
+"height": {
+    "name": "height",
+    "desc": "height"
+},
+"colorBg": {
+    "name": "color bg",
+    "desc": "color background"
+},
+"positionY": {
+    "name": "position Y",
+    "desc": "position Y"
+},
+"opacity": {
+    "name": "opacity HP",
+    "desc": "opacity HP"
+},
+"opacityBg": {
+    "name": "opacity bg",
+    "desc": "opacity background"
+},
+"progressMax": {
+    "name": "max HP",
+    "desc": "max HP"
+}
+				}
+			}
+		}
+	}
+}

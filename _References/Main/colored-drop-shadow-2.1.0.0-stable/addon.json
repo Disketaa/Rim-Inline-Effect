@@ -1,0 +1,61 @@
+{
+	"is-c3-addon": true,
+	"type": "effect",
+	"name": "DropShadow",
+	"id": "skymen_DropShadow",
+	"version": "2.1.0.0",
+	"author": "skymen, Federico Calchera",
+	"website": "https://www.construct.net",
+	"documentation": "https://www.construct.net",
+	"description": "A simple drop shadow effect",
+	"supported-renderers": ["webgl", "webgpu"],
+	"file-list": [
+		"lang/en-US.json",
+		"addon.json",
+		"effect.fx",
+		"effect.wgsl"
+	],
+	
+	"category": "other",
+	"blends-background": true,
+	"cross-sampling": false,
+	"preserves-opaqueness": false,
+	"animated": false,
+	"must-predraw" : false,
+
+	"extend-box": {
+		"horizontal": 0,
+		"vertical": 0
+	},
+	
+	"parameters": [
+        {
+    "id":"shadowColor",
+    "type": "color",
+    "initial-value":[0,0,0],
+    "uniform": "shadowcolor",
+    "interpolatable": true
+},
+{
+    "id":"shadowOpacity",
+    "type": "percent",
+    "initial-value":1,
+    "uniform": "shadowopacity",
+    "interpolatable": true
+},
+{
+    "id":"shadowDistance",
+    "type": "float",
+    "initial-value":10,
+    "uniform": "shadowdistance",
+    "interpolatable": true
+},
+{
+    "id":"shadowAngle",
+    "type": "float",
+    "initial-value":90,
+    "uniform": "shadowangle",
+    "interpolatable": true
+}
+	]
+}

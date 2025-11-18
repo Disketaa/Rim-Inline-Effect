@@ -1,0 +1,38 @@
+{
+  "languageTag": "en-US",
+  "fileDescription": "Strings for better_shine.",
+  "text": {
+    "effects": {
+      "better_shine": {
+        "name": "Better Shine",
+        "description": "A better shine effect",
+        "parameters": {
+          "angle": {
+            "name": "Angle",
+            "desc": "The angle of the shine in degrees"
+          },
+          "intensity": {
+            "name": "Intensity",
+            "desc": "The intensity of the shine"
+          },
+          "color": {
+            "name": "Color",
+            "desc": "The color of the shine"
+          },
+          "size": {
+            "name": "Size",
+            "desc": "The size of the shine"
+          },
+          "progress": {
+            "name": "Progress",
+            "desc": "The progress of the shine"
+          },
+          "hardness": {
+            "name": "Hardness",
+            "desc": "The hardness of the shine"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+	"is-c3-addon": true,
+	"type": "effect",
+	"name": "hp_fx",
+	"id": "hp_fx",
+ "supported-renderers": [
+    "webgl",
+    "webgl2",
+    "webgpu"
+  ],
+	"version": "1.0.0.2",
+	"author": "spokoinbli",
+	"website": "https://www.construct.net",
+	"documentation": "https://www.construct.net",
+	"description": "hp_fx",
+	"file-list": [
+		"lang/en-US.json",
+           "lang/ru-RU.json",
+    		"addon.json",
+		"effect.fx",
+  "effect.webgl2.fx",
+  "effect.wgsl"
+	],
+	
+	"category": "other",
+	"blends-background": false,
+	"cross-sampling": false,
+	"preserves-opaqueness": false,
+	"animated": false,
+	"must-predraw" : false,
+
+	"extend-box": {
+		"horizontal": 0,
+		"vertical": 0
+	},
+	
+	"parameters": [
+        {
+    "id":"colorHp",
+    "type": "color",
+    "initial-value":[1.0, 0.0, 0.0],
+    "uniform": "colorHp"
+},
+{
+    "id":"progress",
+    "type": "float",
+    "initial-value":30.0,
+    "uniform": "progress"
+},
+{
+    "id":"outlineBg",
+    "type": "float",
+    "initial-value":0.01,
+    "uniform": "outlineBg"
+},
+{
+    "id":"width",
+    "type": "percent",
+    "initial-value":0.5,
+    "uniform": "width"
+},
+{
+    "id":"height",
+    "type": "percent",
+    "initial-value":0.05,
+    "uniform": "height"
+},
+{
+    "id":"colorBg",
+    "type": "color",
+    "initial-value":[0.0, 0.0, 0.0],
+    "uniform": "colorBg"
+},
+{
+    "id":"positionY",
+    "type": "percent",
+    "initial-value":0.03,
+    "uniform": "positionY"
+},
+{
+    "id":"opacity",
+    "type": "percent",
+    "initial-value":1.0,
+    "uniform": "opacity"
+},
+{
+    "id":"opacityBg",
+    "type": "percent",
+    "initial-value":0.5,
+    "uniform": "opacityBg"
+},
+{
+    "id":"progressMax",
+    "type": "float",
+    "initial-value":100.0,
+    "uniform": "progressMax"
+}
+	]
+}

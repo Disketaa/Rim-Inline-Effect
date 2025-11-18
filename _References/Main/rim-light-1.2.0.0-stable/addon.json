@@ -1,0 +1,55 @@
+{
+	"is-c3-addon": true,
+	"type": "effect",
+	"name": "Rim Light",
+	"id": "RichardLems_RimLight",
+	"version": "1.2.0.0",
+	"author": "Richard Lems, Federico Calchera",
+	"website": "https://rilem.nl/",
+	"documentation": "https://rilem.nl/c3-rimlight/",
+	"description": "A simple 'rim light' with adjustable size, intensity, angle and color.",
+	"file-list": [
+		"lang/en-US.json",
+		"addon.json",
+		"effect.fx"
+	],
+	
+	"category": "color",
+	"blends-background": false,
+	"cross-sampling": false,
+	"preserves-opaqueness": false,
+	"animated": false,
+	"must-predraw" : false,
+
+	"extend-box": {
+		"horizontal": 0,
+		"vertical": 0
+	},
+	
+	"parameters": [
+        {
+    "id":"clr",
+    "type": "color",
+    "initial-value":[1,1,0],
+    "uniform": "clr"
+},
+{
+    "id":"s",
+    "type": "float",
+    "initial-value":1.0,
+    "uniform": "s"
+},
+{
+    "id":"d",
+    "type": "float",
+    "initial-value":1.0,
+    "uniform": "d"
+},
+{
+    "id":"angl",
+    "type": "float",
+    "initial-value":0,
+    "uniform": "angl"
+}
+	]
+}

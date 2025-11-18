@@ -1,0 +1,48 @@
+{
+	"$schema": "../../effect.lang.schema.json",
+
+	"languageTag": "en-US",
+	"fileDescription": "Strings for the 'Drop Shadow' effect - adds customizable drop shadows with color controls and blur quality.",
+	"text": {
+		"effects": {
+			"xhxiaiein_effect_dropshadow": {
+				"name": "Drop Shadow",
+				"description": "Create a drop shadow with color controls and blur.",
+				"parameters": {
+					"distance": {
+						"name": "Distance",
+						"desc": "Distance of the shadow from the object."
+					},
+					"angle": {
+						"name": "Angle",
+						"desc": "Angle of the shadow in degrees (0-360)."
+					},
+					"opacity": {
+						"name": "Opacity",
+						"desc": "Opacity of the shadow (0-100%)."
+					},
+					"hue": {
+						"name": "Hue",
+						"desc": "Hue adjustment for shadow color (0-360 degrees)."
+					},
+					"saturation": {
+						"name": "Saturation",
+						"desc": "Saturation of the shadow color (0-100%)."
+					},
+					"brightness": {
+						"name": "Brightness",
+						"desc": "Brightness of the shadow color (0-100%)."
+					},
+					"blurradius": {
+						"name": "Blur radius",
+						"desc": "Blur radius for soft shadows."
+					},
+					"blurquality": {
+						"name": "Blur quality",
+						"desc": "Blur sampling quality. Low: faster, High: smoother, but more performance-intensive. Recommended value is 30%."
+					}
+				}
+			}
+		}
+	}
+}

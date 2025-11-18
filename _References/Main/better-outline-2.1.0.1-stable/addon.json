@@ -1,0 +1,86 @@
+{
+  "is-c3-addon": true,
+  "type": "effect",
+  "name": "Better Outline",
+  "id": "skymen_BetterOutline",
+  "supported-renderers": [
+    "webgl",
+    "webgl2",
+    "webgpu"
+  ],
+  "version": "2.1.0.1",
+  "author": "skymen",
+  "website": "https://www.construct.net",
+  "documentation": "https://www.construct.net",
+  "description": "A better outline addon",
+  "file-list": [
+    "lang/en-US.json",
+    "addon.json",
+    "effect.fx",
+    "effect.webgl2.fx",
+    "effect.wgsl"
+  ],
+  "category": "other",
+  "blends-background": false,
+  "uses-depth": false,
+  "cross-sampling": true,
+  "preserves-opaqueness": false,
+  "animated": false,
+  "must-predraw": true,
+  "extend-box": {
+    "horizontal": 50,
+    "vertical": 50
+  },
+  "is-deprecated": false,
+  "parameters": [
+    {
+      "type": "color",
+      "id": "color",
+      "uniform": "outlinecolor",
+      "interpolatable": true,
+      "name": "Color",
+      "desc": "The color of the outline",
+      "initial-value": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "float",
+      "id": "width",
+      "uniform": "width",
+      "interpolatable": true,
+      "name": "Width",
+      "desc": "The width of the outline",
+      "initial-value": 1
+    },
+    {
+      "type": "float",
+      "id": "precision-step",
+      "uniform": "precisionStep",
+      "interpolatable": true,
+      "name": "Precision Step",
+      "desc": "The step in pixels between each sub outline the shader will render",
+      "initial-value": 1
+    },
+    {
+      "type": "float",
+      "id": "samples",
+      "uniform": "samples",
+      "interpolatable": true,
+      "name": "Samples",
+      "desc": "The number of angles the outline will render at",
+      "initial-value": 16
+    },
+    {
+      "type": "percent",
+      "id": "opacity",
+      "uniform": "outlineOpacity",
+      "interpolatable": true,
+      "name": "Opacity",
+      "desc": "The opacity of the outline",
+      "initial-value": 1
+    }
+  ]
+}
