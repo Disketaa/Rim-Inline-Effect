@@ -40,9 +40,12 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let clamped_sharpness = min(shaderParams.sharpness, 1.0);
 
     let srcOriginSize = c3Params.srcOriginEnd - c3Params.srcOriginStart;
-    let object_center = c3Params.srcOriginStart + (srcOriginSize * 0.5);
-    let to_pixel = uv - object_center;
+    let n = (uv - c3Params.srcOriginStart) / srcOriginSize;
     
+    let layoutPos = mix(c3Params.layoutStart, c3Params.layoutEnd, n);
+    let layoutCenter = (c3Params.layoutStart + c3Params.layoutEnd) * 0.5;
+    let to_pixel = layoutPos - layoutCenter;
+
     let light_dir = vec2<f32>(cos(angle_rad), sin(angle_rad));
     let pixel_dir = normalize(to_pixel);
     let cos_angle = dot(light_dir, pixel_dir);
@@ -51,8 +54,8 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let smooth_range = mix(0.1, 0.001, clamped_sharpness);
     let cone_factor = smoothstep(cone_cos - smooth_range, cone_cos + smooth_range, cos_angle);
 
-    let srcRadius = length(srcOriginSize) * 0.5;
-    let normalized_dist = length(to_pixel) / srcRadius;
+    let layoutRadius = length(c3Params.layoutEnd - c3Params.layoutStart) * 0.5;
+    let normalized_dist = length(to_pixel) / layoutRadius;
     let amount_norm = shaderParams.amount * 0.01;
     let amount_factor = 1.0 - smoothstep(amount_norm - smooth_range, amount_norm + smooth_range, 1.0 - normalized_dist);
 
