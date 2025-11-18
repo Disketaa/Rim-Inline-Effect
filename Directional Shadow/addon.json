@@ -45,16 +45,16 @@
       "uniform": "shadow_opacity"
     },
     {
-      "id": "angle",
-      "type": "float",
-      "initial-value": 330.0,
-      "uniform": "angle"
-    },
-    {
       "id": "sharpness",
       "type": "percent",
       "initial-value": 0.0,
       "uniform": "sharpness"
+    },
+    {
+      "id": "angle",
+      "type": "float",
+      "initial-value": 330.0,
+      "uniform": "angle"
     },
     {
       "id": "horizontal_center",
