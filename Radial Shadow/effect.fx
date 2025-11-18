@@ -54,22 +54,7 @@ void main(void) {
     return;
   }
 
-  const int NUM_SAMPLES = 8;
-  const mediump float INV_SAMPLES = 0.125;
-  const mediump float ANGLE_STEP = 0.7853982;
-  mediump vec2 src_half_size_abs = abs(src_half_size);
-  mediump float sample_radius = min(src_half_size_abs.x, src_half_size_abs.y) * 0.3;
-  mediump float combined_alpha = 0.0;
-
-  for (int i = 0; i < NUM_SAMPLES; i++) {
-    mediump float angle = float(i) * ANGLE_STEP;
-    mediump vec2 sample_pos = center + vec2(cos(angle), sin(angle)) * sample_radius;
-    combined_alpha += texture2D(samplerFront, sample_pos).a;
-  }
-
-  combined_alpha *= INV_SAMPLES;
-
-  lowp float shadow_intensity = shadow_opacity * circle_alpha * combined_alpha;
+  lowp float shadow_intensity = shadow_opacity * circle_alpha * object_color.a;
   lowp vec3 shadow_rgb = shadow_color * shadow_intensity;
   mediump vec4 final_color = object_color + vec4(shadow_rgb, shadow_intensity) * (1.0 - object_color.a);
 
