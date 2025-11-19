@@ -56,7 +56,7 @@ void main(void) {
     mediump vec2 layoutCenter = (layoutStart + layoutEnd) * 0.5;
     mediump vec2 to_pixel = layoutPos - layoutCenter;
 
-    mediump vec2 light_dir = vec2(cos(angle_rad), sin(angle_rad));
+    mediump vec2 light_dir = vec2(sin(angle_rad), -cos(angle_rad));
     mediump vec2 pixel_dir = normalize(to_pixel);
     mediump float cos_angle = dot(light_dir, pixel_dir);
     mediump float cone_cos = cos(cone_rad);

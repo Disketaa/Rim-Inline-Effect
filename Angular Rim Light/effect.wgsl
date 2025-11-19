@@ -46,7 +46,7 @@ fn main(input : FragmentInput) -> FragmentOutput {
     let layoutCenter = (c3Params.layoutStart + c3Params.layoutEnd) * 0.5;
     let to_pixel = layoutPos - layoutCenter;
 
-    let light_dir = vec2<f32>(cos(angle_rad), sin(angle_rad));
+    let light_dir = vec2<f32>(sin(angle_rad), cos(angle_rad));
     let pixel_dir = normalize(to_pixel);
     let cos_angle = dot(light_dir, pixel_dir);
     let cone_cos = cos(cone_rad);
